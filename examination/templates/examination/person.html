@@ -1,0 +1,12 @@
+{% extends "home/base.html" %}
+
+{% block content %}
+
+<h3> Vartotojas {{ pk }} </h3>
+<h3> Vartotojas {{ person }} </h3>
+
+
+<a class="btn btn-danger" href="{% url 'examination:person_delete' person.id %}" role="button">Delete</a>
+<a class="btn btn-success" href="{% url 'examination:person_update' person.id %}" role="button">Pakeisti</a>
+
+{% endblock %}

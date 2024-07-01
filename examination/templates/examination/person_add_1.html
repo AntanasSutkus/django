@@ -1,0 +1,18 @@
+{% extends "home/base.html" %}
+
+{% block content %}
+
+    <h1> cia yra add person </h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <label for="your_name">Your name: </label>
+        <input id="your_name" type="text" name="your_name" value="{{ current_name }}">
+        <label for="your_last_name"> Last name: </label>
+        <input id="your_last_name" type="text" name="last_name" value="{{ current_name }}">
+        <label for="your_birth_day"> birth day: </label>
+        <input id="your_birth_day" type="date" name="birth_day" value="{{ current_name }}">
+        <input type="submit" value="OK">
+    </form>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "home/base.html" %}
+
+{% block content %}
+
+
+<div class="d-flex justify-content-between">
+  <div >
+    <h3> Klausimai </h3>
+  </div>
+  <div>
+
+    <a class="btn btn-success" href="{% url 'examination:question_add'  %}" role="button">Pridėti</a>
+
+  </div>
+</div>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Eil. nr.</th>
+          <th scope="col">Klausimas</th>
+          <th scope="col">Atsakymas</th>
+
+        </tr>
+      </thead>
+      {% for question in questions %}
+      <tbody>
+        <tr>
+
+          <th scope="row"> {{ forloop.counter  }} </th>
+
+          <td> <p><a class="link-opacity-100" href="{% url 'examination:question' question.id  %}"> {{ question.question }} </a> </td>
+          <td>
+          {% for answer in question.personanswer_set.all %}
+            <li> {{ answer.answers }} </li>
+             {% endfor %}
+          </td>
+
+
+        </tr>
+      </tbody>
+
+      {% endfor %}
+    </table>
+
+{% endblock %}

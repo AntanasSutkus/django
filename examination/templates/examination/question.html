@@ -1,0 +1,12 @@
+{% extends "home/base.html" %}
+
+{% block content %}
+
+<h3> Klausimas: {{ question }} </h3>
+
+
+
+<a class="btn btn-danger" href="{% url 'examination:question_delete' question.id %}" role="button">Delete</a>
+<a class="btn btn-success" href="{% url 'examination:question_update' question.id %}" role="button">Pakeisti</a>
+
+{% endblock %}

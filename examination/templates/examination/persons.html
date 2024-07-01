@@ -1,0 +1,45 @@
+{% extends "home/base.html" %}
+
+{% block content %}
+
+
+<div class="d-flex justify-content-between">
+  <div >
+    <h3> Vartotojai </h3>
+  </div>
+  <div>
+
+    <a class="btn btn-success" href="{% url 'examination:person_add' %}" role="button">Pridėti</a>
+
+
+  </div>
+</div>
+
+
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Eil. nr.</th>
+          <th scope="col">Vardas</th>
+          <th scope="col">Pavardė</th>
+          <th scope="col">Gimimo data</th>
+        </tr>
+      </thead>
+      {% for person in persons %}
+      <tbody>
+        <tr>
+
+          <th scope="row"> {{ forloop.counter  }} </th>
+
+          <td> <p><a class="link-opacity-100" href="{% url 'examination:person' person.id %}"> {{ person.first_name }} </a> </td>
+          <td> <p><a class="link-opacity-100" href="{% url 'examination:person' person.id %}"> {{ person.last_name }} </a> </td>
+          <td> <p><a class="link-opacity-100" href="{% url 'examination:person' person.id %}"> {{ person.birth_day }} </a> </td>
+
+        </tr>
+      </tbody>
+
+      {% endfor %}
+    </table>
+
+{% endblock %}
